@@ -1,8 +1,8 @@
 {
   "name": "estree-analyzer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Static analysis of JavaScript ASTs in ESTree format",
-  "main": "src/index.js",
+  "main": "index.js",
   "old-files": [
     "README.md",
     "lib"
