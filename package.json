@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "description": "Static analysis of JavaScript ASTs in ESTree format",
   "main": "src/index.js",
-  "files": [
+  "old-files": [
     "README.md",
     "lib"
   ],
