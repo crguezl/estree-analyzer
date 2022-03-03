@@ -1,6 +1,6 @@
 {
   "name": "estree-analyzer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Static analysis of JavaScript ASTs in ESTree format",
   "main": "lib/index.js",
   "files": [
@@ -23,14 +23,15 @@
     "ast",
     "estree"
   ],
-  "author": "Trevor Robinson",
+  "author": "Casiano Rodriguez Leon",
+  "original-author": "Trevor Robinson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/trevorr/estree-analyzer/issues"
+    "url": "git@github.com:crguezl/estree-analyzer/issues"
   },
-  "homepage": "https://github.com/trevorr/estree-analyzer#readme",
+  "homepage": "git@github.com:crguezl/estree-analyzer#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.0.0"
+    "@babel/polyfill": "latest"
   },
   "devDependencies": {
     "@babel/cli": "latest",
