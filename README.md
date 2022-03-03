@@ -5,7 +5,13 @@ Performs basic static analysis of JavaScript ASTs in [ESTree](https://github.com
 ## Installation
 
 ```sh
-npm install estree-analyzer
+npm install git@github.com:crguezl/estree-analyzer.git
+```
+
+You have to install any additional parsers to work:
+
+```
+npm i acorn
 ```
 
 ## Usage
@@ -14,26 +20,34 @@ npm install estree-analyzer
 const acorn = require('acorn');
 const analyzer = require('estree-analyzer');
 
-let expr = acorn.parseExpressionAt(`'1 + 2 * 3 = ' + (1 + 2 * 3)`);
-let analysis = analyzer.analyze(expr);
-console.log(JSON.stringify(analysis, null, 2));
+const expressions = [ `'1 + 2 * 3 = ' + (1 + 2 * 3)`, `null`, `[1,2,3]`, `["hi", "world"]`];
 
-expr = acorn.parseExpressionAt(`obj && obj.nested && obj.nested.prop`);
+expressions.forEach(code => {
+    let expr = acorn.parseExpressionAt(code);
+    let analysis = analyzer.analyze(expr);
+    console.log(`${code} has type: ${JSON.stringify(analysis, null, 0)}`);
+})
+
+let code = `a && a.nested && a.nested.prop`;
+let expr = acorn.parseExpressionAt(code);
 let scope = new analyzer.Scope();
-analysis = analyzer.analyze(expr, scope);
-console.log(JSON.stringify(scope.members, null, 2));
+analyzer.analyze(expr, scope);
+console.log(`scope.members for '${code}' is:\n${JSON.stringify(scope.members, null, 2)}`);
 ```
 
 The code above outputs the following:
 
-```json
+```
+Since Acorn 8.0.0, options.ecmaVersion is required.
+Defaulting to 2020, but this will stop working in the future.
+'1 + 2 * 3 = ' + (1 + 2 * 3) has type: {"type":"string","value":"1 + 2 * 3 = 7"}
+null has type: {"type":"null","value":null}
+[1,2,3] has type: {"type":{"kind":"array","elements":"number"},"value":[1,2,3]}
+["hi", "world"] has type: {"type":{"kind":"array","elements":"string"},"value":["hi","world"]}
+scope.members for 'a && a.nested && a.nested.prop' is:
 {
-  "type": "string",
-  "value": "1 + 2 * 3 = 7"
-}
-{
-  "obj": {
-    "name": "obj",
+  "a": {
+    "name": "a",
     "type": "object",
     "members": {
       "nested": {
