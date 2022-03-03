@@ -1,6 +1,8 @@
 # estree-analyzer
 
-Performs basic static analysis of JavaScript ASTs in [ESTree](https://github.com/estree/estree) format.
+This repo is a fork of <https://github.com/trevorr/estree-analyzer>
+
+The module performs basic static analysis of JavaScript ASTs in [ESTree](https://github.com/estree/estree) format.
 
 ## Installation
 
@@ -435,5 +437,8 @@ the following properties:
 
 
 ## License
+
+
+This repo is a fork of <https://github.com/trevorr/estree-analyzer>
 
 `estree-analyzer` is available under the [ISC license](LICENSE).
