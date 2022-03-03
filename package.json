@@ -1,6 +1,6 @@
 {
   "name": "estree-analyzer",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Static analysis of JavaScript ASTs in ESTree format",
   "main": "index.js",
   "old-files": [
