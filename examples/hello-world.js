@@ -2,11 +2,7 @@ const acorn = require('acorn');
 //const analyzer = require('estree-analyzer');
 const analyzer = require('../lib/index.js');
 
-const expressions = [
-    `'1 + 2 * 3 = ' + (1 + 2 * 3)`, 
-`null`, 
-`[1,2,3]`, 
-`["hi", "world"]`];
+const expressions = [ `'1 + 2 * 3 = ' + (1 + 2 * 3)`, `null`, `[1,2,3]`, `["hi", "world"]`];
 
 expressions.forEach(code => {
     let expr = acorn.parseExpressionAt(code);
