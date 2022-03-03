@@ -23,13 +23,13 @@ const analyzer = require('estree-analyzer');
 const expressions = [ `'1 + 2 * 3 = ' + (1 + 2 * 3)`, `null`, `[1,2,3]`, `["hi", "world"]`];
 
 expressions.forEach(code => {
-    let expr = acorn.parseExpressionAt(code);
+    let expr = acorn.parseExpressionAt(code, 0, { ecmaVersion: 2022});
     let analysis = analyzer.analyze(expr);
     console.log(`${code} has type: ${JSON.stringify(analysis, null, 0)}`);
 })
 
 let code = `a && a.nested && a.nested.prop`;
-let expr = acorn.parseExpressionAt(code);
+let expr = acorn.parseExpressionAt(code, 0, { ecmaVersion: 2022});
 let scope = new analyzer.Scope();
 analyzer.analyze(expr, scope);
 console.log(`scope.members for '${code}' is:\n${JSON.stringify(scope.members, null, 2)}`);
@@ -38,8 +38,6 @@ console.log(`scope.members for '${code}' is:\n${JSON.stringify(scope.members, nu
 The code above outputs the following:
 
 ```
-Since Acorn 8.0.0, options.ecmaVersion is required.
-Defaulting to 2020, but this will stop working in the future.
 '1 + 2 * 3 = ' + (1 + 2 * 3) has type: {"type":"string","value":"1 + 2 * 3 = 7"}
 null has type: {"type":"null","value":null}
 [1,2,3] has type: {"type":{"kind":"array","elements":"number"},"value":[1,2,3]}

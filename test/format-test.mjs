@@ -51,7 +51,7 @@ class C extends Object {
 f(3);
 `;
     const ast = acorn.parse(input, {
-      ecmaVersion: 2018
+      ecmaVersion: 2022
     });
     let output = '';
     format(ast, {
