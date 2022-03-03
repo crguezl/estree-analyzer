@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { analyze, Scope } from '../src/index.mjs';
+import { analyze, Scope } from '../index.js';
 
 import * as acorn from 'acorn'
 

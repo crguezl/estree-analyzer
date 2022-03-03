@@ -8,11 +8,10 @@
     "lib"
   ],
   "scripts": {
-    "build": "babel src --out-dir lib",
     "docs": "jsdoc2md -c jsdoc2md/config.json -f 'src/**/*.mjs' --heading-depth 3 -t jsdoc2md/README.hbs > README.md",
     "lint": "eslint 'src/**/*.mjs'",
-    "prepare": "npm run build",
-    "test": "mocha --require @babel/register --recursive 'test/**/*.mjs'"
+    "test": "mocha --require @babel/register --recursive 'test/**/*.mjs'",
+    "example": "node examples/hello-world.js"
   },
   "type": "module",
   "repository": {

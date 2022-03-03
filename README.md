@@ -105,36 +105,26 @@ the following properties:</p>
 Type definition module.
 
 
-- [estree-analyzer](#estree-analyzer)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [API Reference](#api-reference)
-    - [Modules](#modules)
-    - [Classes](#classes)
-    - [Functions](#functions)
-    - [types](#types)
-      - [types.arrayOf([elements])](#typesarrayofelements)
-      - [types.kindOf(v) ⇒ <code>TypeKind</code>](#typeskindofv--typekind)
-      - [types.getKind(type) ⇒ <code>string</code> \| <code>undefined</code>](#typesgetkindtype--string--undefined)
-      - [types.hasKind(type, kind) ⇒ <code>boolean</code>](#typeshaskindtype-kind--boolean)
-      - [types.isFalsy(type) ⇒ <code>boolean</code>](#typesisfalsytype--boolean)
-      - [types.isTruthy(type) ⇒ <code>boolean</code>](#typesistruthytype--boolean)
-      - [types.isUnion(type) ⇒ <code>boolean</code>](#typesisuniontype--boolean)
-      - [types.getUnionTypes(type) ⇒ <code>Array.&lt;Type&gt;</code>](#typesgetuniontypestype--arraytype)
-      - [types.isAssignable(target, source) ⇒ <code>boolean</code>](#typesisassignabletarget-source--boolean)
-      - [types.isNotAssignable(target, source) ⇒ <code>boolean</code>](#typesisnotassignabletarget-source--boolean)
-      - [types.union(a, b) ⇒ <code>Type</code> \| <code>undefined</code>](#typesuniona-b--type--undefined)
-      - [types.formatType(type) ⇒ <code>string</code>](#typesformattypetype--string)
-      - [types.toCanonical(type) ⇒ <code>TypeObject</code> \| <code>undefined</code>](#typestocanonicaltype--typeobject--undefined)
-      - [types.toShorthand(type) ⇒ <code>TypeObject</code> \| <code>Array.&lt;Type&gt;</code> \| <code>undefined</code>](#typestoshorthandtype--typeobject--arraytype--undefined)
-      - [types~Type : <code>string</code> \| <code>TypeObject</code> \| <code>Array.&lt;Type&gt;</code>](#typestype--string--typeobject--arraytype)
-      - [types~TypeObject : <code>Object</code>](#typestypeobject--object)
-      - [types~Parameter : <code>Object</code>](#typesparameter--object)
-    - [Scope](#scope)
-      - [new exports.Scope([thisRef], [strict], [parent], [topLevel], [members])](#new-exportsscopethisref-strict-parent-toplevel-members)
-    - [TypeKind : <code>enum</code>](#typekind--enum)
-    - [analyze(ast, [rootScope]) ⇒ <code>Object</code>](#analyzeast-rootscope--object)
-  - [License](#license)
+* [types](#module_types)
+    * _static_
+        * [.arrayOf([elements])](#module_types.arrayOf)
+        * [.kindOf(v)](#module_types.kindOf) ⇒ [<code>TypeKind</code>](#TypeKind)
+        * [.getKind(type)](#module_types.getKind) ⇒ <code>string</code> \| <code>undefined</code>
+        * [.hasKind(type, kind)](#module_types.hasKind) ⇒ <code>boolean</code>
+        * [.isFalsy(type)](#module_types.isFalsy) ⇒ <code>boolean</code>
+        * [.isTruthy(type)](#module_types.isTruthy) ⇒ <code>boolean</code>
+        * [.isUnion(type)](#module_types.isUnion) ⇒ <code>boolean</code>
+        * [.getUnionTypes(type)](#module_types.getUnionTypes) ⇒ <code>Array.&lt;Type&gt;</code>
+        * [.isAssignable(target, source)](#module_types.isAssignable) ⇒ <code>boolean</code>
+        * [.isNotAssignable(target, source)](#module_types.isNotAssignable) ⇒ <code>boolean</code>
+        * [.union(a, b)](#module_types.union) ⇒ <code>Type</code> \| <code>undefined</code>
+        * [.formatType(type)](#module_types.formatType) ⇒ <code>string</code>
+        * [.toCanonical(type)](#module_types.toCanonical) ⇒ <code>TypeObject</code> \| <code>undefined</code>
+        * [.toShorthand(type)](#module_types.toShorthand) ⇒ <code>TypeObject</code> \| <code>Array.&lt;Type&gt;</code> \| <code>undefined</code>
+    * _inner_
+        * [~Type](#module_types..Type) : <code>string</code> \| <code>TypeObject</code> \| <code>Array.&lt;Type&gt;</code>
+        * [~TypeObject](#module_types..TypeObject) : <code>Object</code>
+        * [~Parameter](#module_types..Parameter) : <code>Object</code>
 
 <a name="module_types.arrayOf"></a>
 
@@ -386,26 +376,6 @@ At least one of `name` or `type` must be specified.
 | --- | --- | --- |
 | [name] | <code>string</code> | the name of the parameter, if known |
 | [type] | <code>Type</code> | the type of the parameter, if known |
-
-<a name="Scope"></a>
-
-### Scope
-Represents a JavaScript variable scope.
-
-**Kind**: global class  
-<a name="new_Scope_new"></a>
-
-#### new exports.Scope([thisRef], [strict], [parent], [topLevel], [members])
-Constructs a new Scope.
-
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [thisRef] | <code>\*</code> |  | static `this` reference for this scope |
-| [strict] | <code>boolean</code> | <code>false</code> | whether strict mode is enabled |
-| [parent] | [<code>Scope</code>](#Scope) | <code></code> | the containing scope or `null` if none |
-| [topLevel] | <code>boolean</code> |  | whether this is a global or function scope |
-| [members] | <code>Object</code> |  | mapping of member names to associated data |
 
 <a name="TypeKind"></a>
 
