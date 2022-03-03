@@ -1,9 +1,9 @@
 {
   "name": "estree-analyzer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Static analysis of JavaScript ASTs in ESTree format",
-  "main": "src/index.js",
-  "files": [
+  "main": "index.js",
+  "old-files": [
     "README.md",
     "lib"
   ],
@@ -46,7 +46,7 @@
     "chai": "latest",
     "eslint": "latest",
     "husky": "^1.0.1",
-    "jsdoc-to-markdown": "^4.0.1",
+    "jsdoc-to-markdown": "^7.1.1",
     "mocha": "latest"
   }
 }

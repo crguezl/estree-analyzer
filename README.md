@@ -20,7 +20,7 @@ npm i acorn
 
 ```js
 import * as acorn from 'acorn'
-const analyzer = require('estree-analyzer');
+import * as analyzer  from  'estree-analyzer';
 
 const expressions = [ `'1 + 2 * 3 = ' + (1 + 2 * 3)`, `null`, `[1,2,3]`, `["hi", "world"]`];
 

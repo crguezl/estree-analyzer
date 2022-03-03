@@ -1,6 +1,6 @@
 import * as acorn from 'acorn'
 //const analyzer = require('estree-analyzer');
-import * as analyzer  from  '../src/index.mjs';
+import * as analyzer  from  '../index.js';
 //const acorn = require('acorn');
 //const analyzer = require('../lib/index.js');
 
