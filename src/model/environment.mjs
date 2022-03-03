@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { ThisMode } from './function';
+import { ThisMode } from './function.mjs';
 
 export class LexicalEnvironment {
   constructor(record, outer = null) {

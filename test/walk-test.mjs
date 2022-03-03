@@ -2,7 +2,7 @@ import { expect } from 'chai';
 
 import { walk } from '../src/walk.mjs';
 
-const acorn = require('acorn');
+import * as acorn from 'acorn'
 
 const ast = acorn.parse(`var x = 1
 function f(a) { var q = x + a; return q }

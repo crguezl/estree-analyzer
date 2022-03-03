@@ -6,7 +6,7 @@ import { newFunctionEnvironment } from '../../src/model/environment.mjs';
 import { newFunction } from '../../src/model/function.mjs';
 import { newRealm } from '../../src/model/realm.mjs';
 
-const acorn = require('acorn');
+import * as acorn from 'acorn';
 
 describe('bindFunctionDeclarations', function () {
   it('seems to work', function () {

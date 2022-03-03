@@ -1,4 +1,4 @@
-const acorn = require('acorn');
+import * as acorn from 'acorn'
 //const analyzer = require('estree-analyzer');
 const analyzer = require('../lib/index.js');
 

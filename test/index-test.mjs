@@ -2,7 +2,7 @@ import { expect } from 'chai';
 
 import { analyze, Scope } from '../src/index.mjs';
 
-const acorn = require('acorn');
+import * as acorn from 'acorn'
 
 describe('analyze', function () {
   it('produces demo results', function () {

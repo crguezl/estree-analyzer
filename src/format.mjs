@@ -1,5 +1,5 @@
-import { Formatter } from './Formatter';
-import { walk } from './walk';
+import { Formatter } from './Formatter.mjs';
+import { walk } from './walk.mjs';
 
 export function format(ast, options = {}) {
   const fmt = new Formatter(options);

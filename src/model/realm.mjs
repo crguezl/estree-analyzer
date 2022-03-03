@@ -1,4 +1,4 @@
-import { newGlobalEnvironment } from '../model/environment';
+import { newGlobalEnvironment } from '../model/environment.mjs';
 
 export class Realm {
   constructor(globalObject, globalEnv) {

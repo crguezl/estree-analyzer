@@ -11,7 +11,7 @@ npm install estree-analyzer
 ## Usage
 
 ```js
-const acorn = require('acorn');
+import * as acorn from 'acorn'
 const analyzer = require('estree-analyzer');
 
 let expr = acorn.parseExpressionAt(`'1 + 2 * 3 = ' + (1 + 2 * 3)`);

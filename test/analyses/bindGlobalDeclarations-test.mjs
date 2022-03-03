@@ -4,7 +4,7 @@ import { bindGlobalDeclarations } from '../../src/analyses/bindGlobalDeclaration
 import { newExecutionContext } from '../../src/model/context.mjs';
 import { newRealm } from '../../src/model/realm.mjs';
 
-const acorn = require('acorn');
+import * as  acorn from 'acorn';
 
 describe('bindGlobalDeclarations', function () {
   it('seems to work', function () {

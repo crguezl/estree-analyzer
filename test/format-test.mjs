@@ -2,7 +2,7 @@ import { expect } from 'chai';
 
 import { format } from '../src/format.mjs';
 
-const acorn = require('acorn');
+import * as acorn from 'acorn'
 
 describe('format', function () {
   it('round-trips a mess of syntax', function () {

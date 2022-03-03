@@ -4,7 +4,7 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "8.11.4"
+          "node": "16.0.0"
         },
         "useBuiltIns": "usage"
       }
