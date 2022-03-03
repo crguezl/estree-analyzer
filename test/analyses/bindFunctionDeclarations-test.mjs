@@ -27,9 +27,9 @@ function f(x) {
   }
   return p;
 })`;
-    const funcAst = acorn.parseExpressionAt(funcSource);
+    const funcAst = acorn.parseExpressionAt(funcSource, 0, { ecmaVersion: 2022});
     const callSource = `f(1)`;
-    const callAst = acorn.parseExpressionAt(callSource);
+    const callAst = acorn.parseExpressionAt(callSource, 0, { ecmaVersion: 2022});
     const realm = newRealm({});
     const context = newExecutionContext(realm);
     const func = newFunction(realm, context.variableEnvironment, funcAst, context.strict);

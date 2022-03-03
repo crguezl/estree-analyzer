@@ -71,7 +71,7 @@ export default 1 + 2;
 `;
     const ast = acorn.parse(input, {
       sourceType: 'module'
-    });
+    }, { ecmaVersion: 2022 });
     let output = '';
     format(ast, {
       write: s => output += s

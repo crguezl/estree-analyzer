@@ -10,7 +10,7 @@ class C {
   constructor() { this.y = 2 }
   method() { return this.y }
 }
-f(3)`);
+f(3)`, { ecmaVersion: 2022});
 
 describe('walk', function () {
   it('walks declarations', function () {

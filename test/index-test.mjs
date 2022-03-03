@@ -6,7 +6,7 @@ import * as acorn from 'acorn'
 
 describe('analyze', function () {
   it('produces demo results', function () {
-    let expr = acorn.parseExpressionAt(`'1 + 2 * 3 = ' + (1 + 2 * 3)`);
+    let expr = acorn.parseExpressionAt(`'1 + 2 * 3 = ' + (1 + 2 * 3)`,0, { ecmaVersion: 2022});
     let analysis = analyze(expr);
     expect(analysis).to.eql({
       "type": "string",
@@ -56,29 +56,29 @@ describe('analyze', function () {
     expect(scope.resolve('it.stuff.things.join')).to.not.be.null;
   });
   it('returns union type for array expression element type', function () {
-    const expr = acorn.parseExpressionAt('[1, "b", true]');
+    const expr = acorn.parseExpressionAt('[1, "b", true]', 0, { ecmaVersion: 2022});
     const analysis = analyze(expr);
     expect(analysis.type.kind).to.equal('array');
     expect(analysis.type.elements).to.have.members(['number', 'string', 'boolean']);
     expect(analysis.value).to.eql([1, 'b', true]);
   });
   it('short circuits ||', function () {
-    const expr = acorn.parseExpressionAt('(x => 42) || []');
+    const expr = acorn.parseExpressionAt('(x => 42) || []', 0, { ecmaVersion: 2022});
     const analysis = analyze(expr);
     expect(analysis.type).to.equal('function');
   });
   it('short circuits &&', function () {
-    const expr = acorn.parseExpressionAt('null && x');
+    const expr = acorn.parseExpressionAt('null && x', 0, { ecmaVersion: 2022});
     const analysis = analyze(expr);
     expect(analysis.type).to.equal('null');
   });
   it('returns union type for logical expression', function () {
-    const expr = acorn.parseExpressionAt('!x || []');
+    const expr = acorn.parseExpressionAt('!x || []', 0, { ecmaVersion: 2022});
     const analysis = analyze(expr);
     expect(analysis.type).to.have.members(['array', 'boolean']);
   });
   it('returns union type for conditional expression', function () {
-    const expr = acorn.parseExpressionAt('x > 100 ? x - 100 : "too small"');
+    const expr = acorn.parseExpressionAt('x > 100 ? x - 100 : "too small"', 0, { ecmaVersion: 2022});
     const analysis = analyze(expr);
     expect(analysis.type).to.have.members(['number', 'string']);
   });
@@ -102,7 +102,7 @@ describe('analyze', function () {
     ]);
   });
   it('supports array destructuring', function () {
-    const expr = acorn.parseExpressionAt('([a, b, c] = [1, 2, 3])');
+    const expr = acorn.parseExpressionAt('([a, b, c] = [1, 2, 3])', 0, { ecmaVersion: 2022});
     const scope = new Scope();
     const analysis = analyze(expr, scope);
     expect(analysis.type).to.eql({
@@ -113,7 +113,7 @@ describe('analyze', function () {
     expect(scope.members).to.have.keys('a', 'b', 'c');
   });
   it('supports object destructuring', function () {
-    const expr = acorn.parseExpressionAt('({ a, b, c } = { a: 1, b: 2, c: 3 })');
+    const expr = acorn.parseExpressionAt('({ a, b, c } = { a: 1, b: 2, c: 3 })', 0, { ecmaVersion: 2022});
     const scope = new Scope();
     const analysis = analyze(expr, scope);
     expect(analysis.type).to.equal('object');

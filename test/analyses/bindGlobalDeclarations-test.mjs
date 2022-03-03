@@ -30,7 +30,7 @@ class C {
 function f() { v2; var vf2; }
 var f;
 `;
-    const ast = acorn.parse(input);
+    const ast = acorn.parse(input, { ecmaVersion: 2022 });
     const realm = newRealm({});
     const context = newExecutionContext(realm);
     bindGlobalDeclarations(ast, context);
