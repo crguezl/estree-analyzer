@@ -11,6 +11,8 @@
     "docs": "jsdoc2md -c jsdoc2md/config.json -f 'src/**/*.mjs' --heading-depth 3 -t jsdoc2md/README.hbs > README.md",
     "lint": "eslint 'src/**/*.mjs'",
     "test": "mocha --require @babel/register --recursive 'test/**/*.mjs'",
+    "prepare": "npm run build && npm run docs",
+    "prepush": "npm test",
     "example": "node examples/hello-world.js"
   },
   "type": "module",
